@@ -16,7 +16,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sass": "^1.83.1",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "three": "^0.172.0"
   },
   "devDependencies": {
     "postcss": "^8",

@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body{
-    background-color: black;
+    background-color: #050505;
     color: aliceblue;
     display: flex;
     justify-content: center;
@@ -52,7 +52,15 @@ input{
     text-decoration: underline 2px dashed #ffffff85;
 }
 .card:hover .cardImg{
-    box-shadow: 0 0 50px #000;
+    box-shadow: 0 10px 30px #000;
+    transform: scale(1.01);
+    transform: translateY(-3px);
+}
+
+.card:hover .cardImg:active{
+    box-shadow: 0 0px 8px #000;
+    transform: scale(1);
+    transform: translateY(0px);
 }
 
 .card:hover{
@@ -65,6 +73,9 @@ input{
     border-radius: 10px;
     border: #ffffff35 solid 1px;
     width: 410px;
+    box-shadow: 0 0px 8px #000;
+    transform: scale(1);
+    transform: translateY(0px);
     transition: all 0.3s ease;
 }
 
@@ -110,7 +121,7 @@ input{
 .settingsCont{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     margin: 30px;
     justify-content: center;
     font-family: "JetBrains Mono";
@@ -123,4 +134,16 @@ input{
 .settingsTitle{
     font-size: 35px;
     margin-bottom: 10px;
+}
+
+.ballCont{
+    width: 100vh;
+    border-right: #2b2b2b 2px solid;
+    aspect-ratio: 1 / 1;
+}
+
+.division{
+    height: 2px;
+    width: 100%;
+    background-color: #1b1b1b;
 }

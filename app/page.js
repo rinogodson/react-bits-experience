@@ -44,7 +44,7 @@ function Page() {
                 <h1 className="cardHeading">{item.name}</h1>
                 <a className="cardBt" href={item.link}>
                   <ShinyText
-                    text={"Click to visit."}
+                    text={"Click to try."}
                     speed={3}
                     className="custom-class"
                   />
@@ -66,22 +66,7 @@ const experiences = [
     link: "/magnetlines",
     image: "https://cloud-q4n1tz09u-hack-club-bot.vercel.app/0image.png",
   },
-  { name: "Ballpit", link: "/ballpit", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
-  {
-    name: "Variable Proximity",
-    link: "variableproximity",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
-  },
-  {
-    name: "True Focus",
-    link: "/truefocus",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
-  },
-  {
-    name: "Noise",
-    link: "/noise",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
-  },
+  { name: "Ballpit", link: "/ballpit", image: "https://cloud-ap6m65cq7-hack-club-bot.vercel.app/0image.png", },
   {
     name: "Splash Cursor",
     link: "/splashcursor",
@@ -92,10 +77,9 @@ const experiences = [
     link: "/blobcursor",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
-  { name: "Stack", link: "/stack", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
   {
-    name: "Shape Blur",
-    link: "/shapeblur",
+    name: "Waves",
+    link: "/waves",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
   {
@@ -104,8 +88,24 @@ const experiences = [
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
   {
-    name: "Waves",
-    link: "/waves",
+    name: "Noise",
+    link: "/noise",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  { name: "Stack", link: "/stack", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
+  {
+    name: "Shape Blur",
+    link: "/shapeblur",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Variable Proximity",
+    link: "variableproximity",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "True Focus",
+    link: "/truefocus",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
 ];

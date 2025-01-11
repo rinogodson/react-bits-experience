@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Slider = ({ minimum = 0, maximum = 100, text, value, onChangeFn }) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper className="w-full">
       <div className="PB-range-slider-div">
         <p className="PB-range-slidertitle">{text}</p>
         <div
@@ -54,7 +54,7 @@ const StyledWrapper = styled.div`
     height: 35px;
     border-radius: 5px;
     background-color: #fff;
-    border: 2px solid #000;
+    border: 3px solid #1B1B1B;
     cursor: pointer;
     transition: all 0.3s ease;
   }
@@ -86,7 +86,8 @@ const StyledWrapper = styled.div`
     background-color: #1b1b1b;
     padding: 18px;
     border-radius: 20px;
-    width: 400px;
+    width: 100%;
+    max-width: 500px;
     border: 1px solid #4b4b4b;
     font-size: 1.2em;
     box-shadow: 0px 1px 2px 0px #1f1e241f;

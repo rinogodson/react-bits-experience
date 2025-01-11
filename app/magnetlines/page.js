@@ -59,35 +59,37 @@ function Page() {
             setGridLev(false);
           }}
         />
-
-        <Slider
-          text={"Line Height"}
-          value={magneticProps.lineHeight}
-          onChangeFn={(e) => {
-            if (
-              parseInt(e.target.value) > 0 &&
-              parseInt(e.target.value) <= 100
-            ) {
-              setMagneticProps((prev) => {
-                return { ...prev, lineHeight: parseInt(e.target.value) };
-              });
-            }
-          }}
-        />
-        <Slider
-          text={"Line Width"}
-          value={magneticProps.lineWidth}
-          onChangeFn={(e) => {
-            if (
-              parseInt(e.target.value) > 0 &&
-              parseInt(e.target.value) <= 100
-            ) {
-              setMagneticProps((prev) => {
-                return { ...prev, lineWidth: parseInt(e.target.value) };
-              });
-            }
-          }}
-        />
+        <div className="division" />
+        <div className="grid grid-cols-2 gap-[10px] w-full">
+          <Slider
+            text={"Height"}
+            value={magneticProps.lineHeight}
+            onChangeFn={(e) => {
+              if (
+                parseInt(e.target.value) > 0 &&
+                parseInt(e.target.value) <= 100
+              ) {
+                setMagneticProps((prev) => {
+                  return { ...prev, lineHeight: parseInt(e.target.value) };
+                });
+              }
+            }}
+          />
+          <Slider
+            text={"Width"}
+            value={magneticProps.lineWidth}
+            onChangeFn={(e) => {
+              if (
+                parseInt(e.target.value) > 0 &&
+                parseInt(e.target.value) <= 100
+              ) {
+                setMagneticProps((prev) => {
+                  return { ...prev, lineWidth: parseInt(e.target.value) };
+                });
+              }
+            }}
+          />
+        </div>
         <Slider
           minimum={0}
           maximum={100}
@@ -104,6 +106,7 @@ function Page() {
             }
           }}
         />
+        <div className="division" />
         <div className="grid w-full gap-[8px] grid-cols-2">
           <ColorPicker
             label="Color"
