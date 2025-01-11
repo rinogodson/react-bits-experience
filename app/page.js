@@ -1,101 +1,111 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import BlurText from "@/src/blocks/TextAnimations/BlurText/BlurText";
+import SpotlightCard from "@/src/blocks/Components/SpotlightCard/SpotlightCard";
+import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
+import { motion } from "framer-motion";
 
-export default function Home() {
+function Page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <>
+      <BlurText
+        text="React Bits - Experience."
+        delay={10}
+        className="blurtext"
+        direction="top"
+        animateBy="letters"
+      />
+      <motion.p
+      initial={{opacity: 0, scaleX: 0}}
+      animate={{opacity: 0.8, scaleX: 1}}
+      whileHover={{opacity: 1, scaleX: 1.15}}
+      transition={{duration: 0.5, type:"spring", damping:"20", stiffness:"300"}}
+      className="tagline">Have you seen your app dance and users giggle?<br/><span style={{fontSize:"30px"}}>Experience the power of React Animations here!</span></motion.p>
+      <div className="cardsCont">
+        {experiences.map((item, index) => {
+          return (
+            <motion.div
+              key={index + item.name}
+              initial={{ opacity: 0, translateY: "100px", rotate: "2deg" }}
+              animate={{ opacity: 1, translateY: "0px", rotate: "0deg" }}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 250,
+                damping: 12,
+              }}
+            >
+              <SpotlightCard
+                key={index}
+                className="card"
+                spotlightColor="rgba(255, 255, 255, 0.05)"
+              >
+                <img className="cardImg" src={item.image} />
+                <h1 className="cardHeading">{item.name}</h1>
+                <a className="cardBt" href={item.link}>
+                  <ShinyText
+                    text={"Click to visit."}
+                    speed={3}
+                    className="custom-class"
+                  />
+                </a>
+              </SpotlightCard>
+            </motion.div>
+          );
+        })}
+      </div>
+    </>
   );
 }
+
+export default Page;
+
+const experiences = [
+  {
+    name: "Magnet Lines",
+    link: "/magnetlines",
+    image: "https://cloud-q4n1tz09u-hack-club-bot.vercel.app/0image.png",
+  },
+  { name: "Ballpit", link: "/ballpit", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
+  {
+    name: "Variable Proximity",
+    link: "variableproximity",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "True Focus",
+    link: "/truefocus",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Noise",
+    link: "/noise",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Splash Cursor",
+    link: "/splashcursor",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Blob Cursor",
+    link: "/blobcursor",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  { name: "Stack", link: "/stack", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
+  {
+    name: "Shape Blur",
+    link: "/shapeblur",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Hyperspeed",
+    link: "/hyperspeed",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Waves",
+    link: "/waves",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+];

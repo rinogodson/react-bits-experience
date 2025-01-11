@@ -1,21 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body{
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+input{
+    color: #000;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.tagline{
+    margin-top: 40px;
+    font-size: 25px;
+    font-family: "JetBrains Mono";
+    text-align: center;
+}
+
+.blurtext{
+    margin-top: 100px;
+    font-size: 100px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: fit-content;
+    gap: 20px;
+    cursor: crosshair;
+    transition: all 0.3s ease;
+}
+
+.cardHeading{
+    font-size: 40px;
+    font-family: "Mona Sans";
+    text-decoration: underline dashed 2px #ffffff00;
+    text-underline-offset: 4px;
+    cursor: text;
+    transition: all 0.3s ease;
+}
+.card:hover .cardHeading{
+    text-underline-offset: 4px;
+    text-decoration: underline 2px dashed #ffffff85;
+}
+.card:hover .cardImg{
+    box-shadow: 0 0 50px #000;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    transform: rotate(1deg);
+}
+
+
+.cardImg{
+    border-radius: 10px;
+    border: #ffffff35 solid 1px;
+    width: 410px;
+    transition: all 0.3s ease;
+}
+
+.cardBt{
+    background: #000000;
+    padding: 10px 20px;
+    border: 2px solid rgb(53, 53, 53);
+    color: rgb(111, 181, 255);
+    font-weight: 600;
+    font-family: "Mona Sans";
+    font-variation-settings: "wdth" 1000;
+    border-radius: 100px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+.cardBt:hover{
+    background: #191919;
+}
+.cardBt:active{
+    transform: scale(0.9);
+    background: #000;
+}
+
+.cardsCont{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 80px;
+    margin-top: 100px;
+}
+
+@media (max-width: 1500px){
+    .cardsCont{
+        grid-template-columns: 1fr 1fr;
+    }
+    .cardHeading{
+        font-size: 34px;
+    }
+    .blurtext{
+        font-size: 50px;
+    }
+}
+
+.settingsCont{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 30px;
+    justify-content: center;
+    font-family: "JetBrains Mono";
+    align-items: center;
+    background-color: #0c0c0c;
+    border: #2b2b2b 1px solid;
+    padding: 20px;
+    border-radius: 40px;
+}
+.settingsTitle{
+    font-size: 35px;
+    margin-bottom: 10px;
 }
