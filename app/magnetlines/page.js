@@ -6,6 +6,7 @@ import ColorPicker from "../components/colorPicker/colorpicker";
 import Select from "../components/uiverse/select";
 import { BringToFront, Grid2x2, Ruler, Settings, Settings2 } from "lucide-react";
 import { motion } from "framer-motion";
+import "../globals.css"
 function Page() {
   const [gridLev, setGridLev] = React.useState(false);
 
@@ -16,7 +17,7 @@ function Page() {
       setMagneticProps(templates[index].set);
     }, [template])
   
-  const handleChange = (e)=>{setTemplate(e.target.value)}
+  const handleChange = (e)=>{setTemplate(e.target.value)} 
 
   React.useEffect(() => {
     setGridLev(false);
@@ -36,8 +37,16 @@ function Page() {
     bgColor: "#0e0e0e",
     borderRadius: 45,
   });
+
+  const [show, setShow] = React.useState(false)
+    React.useEffect(()=>{
+      setShow(true);
+    }, [])
   return (
+    
     <div className={`w-screen h-screen flex justify-between items-center`}>
+      {show && (
+        <>
       <div className={`w-[100vh]`}>
         {gridLev && (
           <MagnetLines
@@ -56,17 +65,25 @@ function Page() {
       </div>
 
       <motion.div
-      initial={{opacity:0, translateY:"100px", translateX: "100px"}}
-      animate={{opacity:1, translateY:"0px", translateX: "0px"}}
-      transition={{duration: 0.5, type: "spring", damping:20}}
-      layout
-      className="settingsCont" style={{ position: "relative" }}>
+        initial={{ opacity: 0, translateX: "100px", scale: 0 }}
+        animate={{ opacity: 1, translateX: "0px", scale: 1 }}
+        transition={{
+          duration: 0.2,
+          type: "spring",
+          damping: 60,
+          mass: 5,
+          stiffness: 300,
+        }}
+        layout
+        className="settingsCont"
+        style={{ position: "relative" }}
+      >
         <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
           <Settings size={30} />
           <p className="flex justify-center items-center">{`Settings`}</p>
         </div>
         <p className="templates">
-          <Settings2 size={18}/> Templates
+          <Settings2 size={18} /> Templates
         </p>
         <Select
           templates={templates}
@@ -169,6 +186,8 @@ function Page() {
         <div className="division"></div>
         <p>Reload if FPS issues.</p>
       </motion.div>
+        </>
+      )}
     </div>
   );
 }

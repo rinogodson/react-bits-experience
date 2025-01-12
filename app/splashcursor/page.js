@@ -3,6 +3,7 @@ import React from 'react'
 import Slider from '../components/uiverse/slider'
 import SplashCursor from '@/src/blocks/Animations/SplashCursor/SplashCursor'
 import { Hash, Radius, Settings } from 'lucide-react'
+import "../globals.css"
 
 function Page() {
   const [splashProps, setSplashProps] = React.useState({
@@ -24,8 +25,15 @@ function Page() {
       setShowSplash(true);
     }, 200);
   }, [splashProps.colorSpeed, splashProps.curls, splashProps.force, splashProps.pressure, splashProps.radius, splashProps.simResolution])
+
+  const [show, setShow] = React.useState(false)
+    React.useEffect(()=>{
+      setShow(true);
+    }, [])
   return (
     <div>
+      {show && (
+        <>
       <SplashCursor
         SIM_RESOLUTION={splashProps.simResolution}
         PRESSURE={splashProps.pressure}
@@ -63,6 +71,8 @@ function Page() {
         <div className="division"></div>
         <p>Reload if FPS issues.</p>
       </div>
+      </>
+      )}
     </div>
   );
 }

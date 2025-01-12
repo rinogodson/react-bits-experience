@@ -21,6 +21,8 @@ import Slider from "../components/uiverse/slider";
 import ColorPicker from "../components/colorPicker/colorpicker";
 import Toggle from "../components/toggle/toggle";
 import Select from "../components/uiverse/select";
+import { motion } from "framer-motion";
+import "../globals.css"
 
 function Page() {
   const [showBalls, setShowBalls] = React.useState(true);
@@ -70,8 +72,15 @@ function Page() {
   const handleChange = (e) => {
     setTemplate(e.target.value);
   };
+
+  const [show, setShow] = React.useState(false)
+      React.useEffect(()=>{
+        setShow(true);
+      }, [])
   return (
     <div className="flex justify-between items-center w-screen h-screen">
+      {show && (
+        <>
       <div className="ballCont" style={{ backgroundColor: ballProps.bgColor }}>
         {showBalls && (
           <Ballpit
@@ -88,13 +97,26 @@ function Page() {
           />
         )}
       </div>
-      <div className="settingsCont" style={{ position: "relative" }}>
+      <motion.div
+        initial={{ opacity: 0, translateX: "100px", scale: 0 }}
+        animate={{ opacity: 1, translateX: "0px", scale: 1 }}
+        transition={{
+          duration: 0.2,
+          type: "spring",
+          damping: 60,
+          mass: 5,
+          stiffness: 300,
+        }}
+        layout
+        className="settingsCont"
+        style={{ position: "relative" }}
+      >
         <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
           <Settings size={30} />
           <p className="flex justify-center items-center">{`Settings`}</p>
         </div>
         <p className="templates">
-          <Settings2 size={18}/> Templates
+          <Settings2 size={18} /> Templates
         </p>
         <Select
           templates={templates}
@@ -312,7 +334,9 @@ function Page() {
         </div>
         <div className="division"></div>
         <p>Reload if FPS issues.</p>
-      </div>
+      </motion.div>
+      </>
+      )}
     </div>
   );
 }

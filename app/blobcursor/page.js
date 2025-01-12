@@ -4,6 +4,7 @@ import BlobCursor from "@/src/blocks/Animations/BlobCursor/BlobCursor";
 import ColorPicker from "../components/colorPicker/colorpicker";
 import Select from "../components/uiverse/select";
 import { Settings, Settings2 } from "lucide-react";
+import "../globals.css"
 function Page() {
   const [showBlob, setShowBlob] = React.useState(true);
   const [template, setTemplate] = React.useState("Custom");
@@ -23,56 +24,64 @@ function Page() {
     setTemplate(e.target.value);
   };
 
+  const [show, setShow] = React.useState(false)
+    React.useEffect(()=>{
+      setShow(true);
+    }, [])
   return (
     <div className="w-screen h-screen flex justify-between items-center">
-      <div
-        className={`w-[100vh] aspect-square`}
-        style={{ backgroundColor: blobProps.bgColor }}
-      >
-        {showBlob && (
-          <BlobCursor
-            blobType={blobProps.blobType}
-            fillColor={blobProps.blobColor}
-          />
-        )}
-      </div>
-      <div className="settingsCont" style={{ position: "relative" }}>
-        <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
-          <Settings size={30} />
-          <p className="flex justify-center items-center">{`Settings`}</p>
-        </div>
-        <p className="templates">
-          <Settings2 size={18}/> Templates
-        </p>
-        <Select
-          templates={templates}
-          template={template}
-          handleChange={handleChange}
-        />
-        <div className="division"></div>
-        <div className="grid grid-cols-2 gap-[10px]">
-          <ColorPicker
-            label="Blob Color"
-            value={blobProps.blobColor}
-            onChangeFn={(e) => {
-              setBlobProps((prev) => {
-                return { ...prev, blobColor: e.target.value };
-              });
-            }}
-          />
-          <ColorPicker
-            label="BG Color"
-            value={blobProps.bgColor}
-            onChangeFn={(e) => {
-              setBlobProps((prev) => {
-                return { ...prev, bgColor: e.target.value };
-              });
-            }}
-          />
-        </div>
-        <div className="division"></div>
-        <p>Reload if FPS issues.</p>
-      </div>
+      {show && (
+        <>
+          <div
+            className={`w-[100vh] aspect-square`}
+            style={{ backgroundColor: blobProps.bgColor }}
+          >
+            {showBlob && (
+              <BlobCursor
+                blobType={blobProps.blobType}
+                fillColor={blobProps.blobColor}
+              />
+            )}
+          </div>
+          <div className="settingsCont" style={{ position: "relative" }}>
+            <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
+              <Settings size={30} />
+              <p className="flex justify-center items-center">{`Settings`}</p>
+            </div>
+            <p className="templates">
+              <Settings2 size={18} /> Templates
+            </p>
+            <Select
+              templates={templates}
+              template={template}
+              handleChange={handleChange}
+            />
+            <div className="division"></div>
+            <div className="grid grid-cols-2 gap-[10px]">
+              <ColorPicker
+                label="Blob Color"
+                value={blobProps.blobColor}
+                onChangeFn={(e) => {
+                  setBlobProps((prev) => {
+                    return { ...prev, blobColor: e.target.value };
+                  });
+                }}
+              />
+              <ColorPicker
+                label="BG Color"
+                value={blobProps.bgColor}
+                onChangeFn={(e) => {
+                  setBlobProps((prev) => {
+                    return { ...prev, bgColor: e.target.value };
+                  });
+                }}
+              />
+            </div>
+            <div className="division"></div>
+            <p>Reload if FPS issues.</p>
+          </div>
+        </>
+      )}
     </div>
   );
 }
