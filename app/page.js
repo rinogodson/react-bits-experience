@@ -38,7 +38,7 @@ function Page() {
           return (
             <motion.div
               key={index + item.name}
-              initial={{ opacity: 0, translateY: "100px", rotate: "2deg" }}
+              initial={{ opacity: 0, translateY: "100px", rotate: "10deg" }}
               animate={{ opacity: 1, translateY: "0px", rotate: "0deg" }}
               transition={{
                 duration: 1,
@@ -92,11 +92,6 @@ const experiences = [
     name: "Waves",
     link: "/waves",
     image: "https://cloud-1yrvxo399-hack-club-bot.vercel.app/0image.png",
-  },
-  {
-    name: "Noise",
-    link: "/noise",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
   {
     name: "Shape Blur",

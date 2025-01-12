@@ -1,0 +1,138 @@
+"use client";
+import React from "react";
+import ShapeBlur from "@/src/blocks/Backgrounds/ShapeBlur/ShapeBlur";
+import Slider from "../components/uiverse/slider";
+import Toggle from "../components/toggle/toggle";
+import { Circle, Square, Triangle } from "lucide-react";
+function Page() {
+  const [shapeProps, setShapeProps] = React.useState({
+    variation: 0,
+    shapeSize: 1,
+    roundness: 0.5,
+    borderSize: 0.08,
+    circleSize: 0.1,
+    circleEdge: 0.45,
+    squidGame: false,
+  });
+  return (
+    <div className="w-screen h-screen flex justify-between items-center">
+      <div
+        className="flex aspect-square bg-[#030303] flex-row"
+        style={
+          !shapeProps.squidGame
+            ? { width: "100vh" }
+            : { width: "100vh", justifyContent: "center", alignItems: "center" }
+        }
+      >
+        {!shapeProps.squidGame ? (
+          <ShapeBlur
+            variation={shapeProps.variation} // YES => 0->RoundedSquare 1->FilledCircle 2->CircleOutline 3->Triangle
+            shapeSize={shapeProps.shapeSize} //YES
+            roundness={shapeProps.roundness} // YES
+            borderSize={shapeProps.borderSize} // YES
+            circleSize={shapeProps.circleSize}
+            circleEdge={shapeProps.circleEdge}
+            style={{ width: "100%" }}
+          />
+        ) : (
+          <>
+            <ShapeBlur
+              variation={0} // YES => 0->RoundedSquare 1->FilledCircle 2->CircleOutline 3->Triangle
+              shapeSize={1.3} //YES
+              roundness={1.3} // YES
+              borderSize={0.08} // YES
+              circleSize={0.2}
+              circleEdge={0.5}
+            />
+            <ShapeBlur
+              variation={0} // YES => 0->RoundedSquare 1->FilledCircle 2->CircleOutline 3->Triangle
+              shapeSize={1.25} //YES
+              roundness={0} // YES
+              borderSize={0.08} // YES
+              circleSize={0.2}
+              circleEdge={0.5}
+            />
+            <ShapeBlur
+              variation={3} // YES => 0->RoundedSquare 1->FilledCircle 2->CircleOutline 3->Triangle
+              shapeSize={0.4} //YES
+              roundness={0.4} // YES
+              borderSize={0.04} // YES
+              circleSize={0.1}
+              circleEdge={0.5}
+            />
+          </>
+        )}
+      </div>
+
+      <div className="settingsCont" style={{ position: "relative" }}>
+        <p className="settingsTitle">{`-> Settings <-`}</p>
+        <div className="grid grid-cols-2 gap-[10px] w-full" style={{gridTemplateColumns:"110px 1fr"}}>
+        <Toggle value={shapeProps.squidGame} text={shapeProps.squidGame ? "Squid Game Mode On" : "Squid Game Mode Off"}
+        onChangeFn={()=>{
+          setShapeProps((prev)=>{return {...prev, squidGame: !prev.squidGame}})
+        }}
+        >
+          <div className="flex gap-[3px]">
+            <Circle/>
+            <Square/>
+            <Triangle/>
+          </div>
+        </Toggle>
+          <Slider
+            minimum={0}
+            maximum={100}
+            text={"Shape Size"}
+            style={shapeProps.squidGame ? {transform:"scale(0.9)", opacity: 0.5, pointerEvents:"none"} : {transform:"scale(1)", opacity:1, pointerEvents:"all"}}
+            value={Math.round(shapeProps.shapeSize * 100)}
+            onChangeFn={(e) => {
+              let val = parseFloat(e.target.value) / 100;
+              if (val <= 1 && val >= 0) {
+                setShapeProps((prev) => {
+                  return { ...prev, shapeSize: val };
+                });
+              }
+            }}
+          />
+        </div>
+
+        <div className="division"></div>
+        <div className="grid w-full gap-[10px] grid-cols-2">
+          <Slider
+            minimum={0}
+            maximum={100}
+            text={"Border Radius"}
+            value={Math.round(shapeProps.roundness * 100)}
+            onChangeFn={(e) => {
+              let val = parseFloat(e.target.value) / 100;
+              if (val <= 1 && val >= 0) {
+                setShapeProps((prev) => {
+                  return { ...prev, roundness: val };
+                });
+              }
+            }}
+          />
+
+          <Slider
+            minimum={0}
+            maximum={100}
+            text={"Border Size"}
+            value={Math.round(shapeProps.borderSize * 100)}
+            onChangeFn={(e) => {
+              let val = parseFloat(e.target.value) / 100;
+              console.log("val", Math.round(shapeProps.borderSize * 100) + "%");
+
+              if (val <= 1 && val >= 0) {
+                setShapeProps((prev) => {
+                  return { ...prev, borderSize: val };
+                });
+              }
+            }}
+          />
+        </div>
+        <div className="division"></div>
+      </div>
+    </div>
+  );
+}
+
+export default Page;

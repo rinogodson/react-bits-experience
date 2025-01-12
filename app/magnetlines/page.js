@@ -120,7 +120,7 @@ function Page() {
           }}
         />
         <div className="division" />
-        <div className="grid w-full gap-[8px] grid-cols-2">
+        <div className="grid w-full gap-[10px] grid-cols-2">
           <ColorPicker
             label="Color"
             value={magneticProps.lineColor}

@@ -3,11 +3,16 @@ import React from "react";
 import Waves from "@/src/blocks/Backgrounds/Waves/Waves";
 import Slider from "../components/uiverse/slider";
 import ColorPicker from "../components/colorPicker/colorpicker";
+
+import Select from "../components/uiverse/select";
+
 function Page() {
   const [showWave, setShowWave] = React.useState(false);
 
+  const [template, setTemplate] = React.useState("Custom")
+
   const [waveProps, setWaveProps] = React.useState({
-    lineColor: "#2b2b2b",
+    lineColor: "#3b3b3b",
     bgColor: "#000000",
     waveSpeedX: 0.02,
     waveSpeedY: 0.01,
@@ -57,7 +62,8 @@ function Page() {
 
       <div className="settingsCont" style={{ position: "relative" }}>
         <p className="settingsTitle">{`-> Settings <-`}</p>
-
+        <p>Templates</p>
+        <Select templates={templates} template={template} setTemplate={setTemplate} setProps={setWaveProps}/>
         <div className="w-full grid grid-cols-2 gap-[10px]">
           <ColorPicker
             label={"Wave Color"}
@@ -198,3 +204,35 @@ function Page() {
 }
 
 export default Page;
+
+
+const templates = [
+  {
+    name: "Custom",
+    set: {
+      lineColor: "#3b3b3b",
+      bgColor: "#000000",
+      waveSpeedX: 0.02,
+      waveSpeedY: 0.01,
+      waveAmp: 40,
+      friction: 0.9,
+      tension: 0.01,
+      xGap: 12,
+      yGap: 36,
+    },
+  },
+  {
+    name: "Sea",
+    set: {
+      lineColor: "#f7f7f7",
+      bgColor: "#2433a8",
+      waveSpeedX: 0.1,
+      waveSpeedY: 0.01,
+      waveAmp: 16,
+      friction: 0.78,
+      tension: 0.01,
+      xGap: 22,
+      yGap: 36,
+    },
+  },
+];

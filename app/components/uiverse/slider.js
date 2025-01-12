@@ -2,9 +2,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Slider = ({ minimum = 0, maximum = 100, text, value, onChangeFn }) => {
+const Slider = ({ minimum = 0, maximum = 100, text, value, onChangeFn, style }) => {
   return (
-    <StyledWrapper className="w-full">
+    <StyledWrapper className="w-full" style={{...style, transition: "all 300ms ease"}}>
       <div className="PB-range-slider-div">
         <p className="PB-range-slidertitle">{text}</p>
         <div
