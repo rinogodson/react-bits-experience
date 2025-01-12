@@ -111,13 +111,13 @@ function Page() {
           flexDirection: "column",
           marginBottom: "50px",
           width: "100%",
-          gap:"20px",
+          gap: "20px",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
         <span>Made with power of Love & Open Source.</span>
-        <div style={{display:"flex", gap:"20px"}}>
+        <div style={{ display: "flex", gap: "20px" }}>
           <a
             className="link"
             href="https://github.com/rinogodson/react-bits-experience"
@@ -136,10 +136,7 @@ function Page() {
           >
             GUIDE
           </a>
-          <a
-            className="link"
-            href="https://github.com/rinogodson"
-          >
+          <a className="link" href="https://github.com/rinogodson">
             Git Profile
           </a>
         </div>
@@ -174,8 +171,7 @@ const experiences = [
   {
     name: "Blob Cursor",
     link: "/blobcursor",
-    image:
-      "/image3.png",
+    image: "/image3.png",
   },
   {
     name: "Splash Cursor",

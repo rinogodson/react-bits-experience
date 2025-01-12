@@ -1,96 +1,180 @@
 # Magnet Lines
-Magnet Lines are easy to use. These lines moves when you move your cursour on it. If you want more satisfaction you have seen some options. There are Custom, Candy, Sun, Aim these are only some templates you can customize your magneet lines as your choice. Size, Height & Width, Border Radius, Color and BG Color.
 
-How to use:
+Magnet Lines are easy to use. These lines move when you move your cursor over them. For added satisfaction, you can explore various templates like Candy, Sun, and Aim. Additionally, you can customize your magnet lines to your preferences, including options for size, height, width, border radius, color, and background color.
+
+We used the color #663399, famously known as "Rebecca Purple." If you're unfamiliar with its story, try Googling "Rebecca Purple" for more details.
 
 ## Size
-This helps you to increase and decrease the size of the magnet lines as your choice.
+
+This setting lets you increase or decrease the grid size of the magnet lines to suit your preferences.
 
 ## Height & Width
-Height & Width can adjust the size of the magnet lines.
+
+Adjust the size of individual magnet lines by modifying their height and width.
 
 ## Border Radius
-This feature helps you to change the corner size as your choice.
+
+Change the border radius of individual lines as you like using this feature.
 
 ## Color
-In Color option you can select your favourite color this will make your mind more confortable.
+
+The Color option allows you to pick your favorite color for the lines.
 
 ## BG Color
-BG Color helps you to change the color of the background you using and makes it more to like.
+
+Use the BG Color option to change the background color.
 
 ## Templates
 
-### Candy 
-Candy template makes the screen more funnier and cute, this template helps you to get some satisfaction.
+### Candy
+
+The Candy template adds a playful and cute look to the screen, offering a satisfying visual experience.
 
 ### Sun
-Sun template is a template which has an incredible animation and makes it like rays of the sun this makes your mind refresh.
+
+The Sun template features incredible animations that resemble sun rays, providing a refreshing effect for the mind.
 
 ### Aim
-Aim template will provide you an amazing experience, the magnet lines will touch and look at your mouse cursor. It is inspired by a guns aim scope.
 
-
+The Aim template creates an amazing experience where the magnet lines align and point toward your mouse cursor, inspired by a gun’s aiming scope.
 
 # Ballpit
-Ballpit is an increbible and amazing thing. You can make fun and self antiboring purpose which helps your mind to refresh.
 
-How to use:
+Ballpit is an incredible and fun feature designed for self-entertainment and to refresh your mind.
 
-## Count 
-Count option helps you to increase and decrease the number of the balls.
+## How to Use
 
-## Color
-There are Color 1, 2 and 3 you can select the color you want to the balls which makes the balls more beatiful.
+### Count
 
-## Min. Size & Max. Size 
-Minimum Size and Maximum Size options helps you to increase and decrease the size os the balls, if you change the min. size to it's maximum level the balls will generate at the size you selected and the max. Size is also like the min. size.
+The Count option lets you adjust the number of balls on the screen.
 
-## Light Size
-Light size can help you with changing the size of the light. 
+### Color
 
-## Hide Light & Show Light 
-This option will enable the light to show and hide itself if you click on it.
+Select up to three colors (Color 1, 2, and 3) to customize the appearance of the balls, making them more beautiful.
 
-## Light Intensity
-This option allows you to change the brightness of the light.
+### Min. Size & Max. Size
 
-## Gravity
-Gravity is an option which can change the whole movement of the balls it changes the gravity of the surroundings.
+The Minimum Size and Maximum Size options let you control the size of the balls. As the names suggest, these settings define the smallest and largest sizes of the balls.
 
-## Disable Gravity & Enable Gravity
-This an option which can turn off the gravity and turn it on back.
+### Light Size
+
+Change the size of the light ball using the Light Size option.
+
+### Hide Light & Show Light
+
+This option allows you to toggle the visibility of the light ball.
+
+### Light Intensity
+
+Adjust the brightness of the light using the Light Intensity option.
+
+### Gravity
+
+Change the movement behavior of the balls by modifying the gravity setting.
+
+### Disable Gravity & Enable Gravity
+
+Toggle gravity on or off with this option.
 
 ## Templates
 
 ### Lava
-Lava template will change the whole theme of the balls and provides a vizualization of lava balls.
+
+The Lava template transforms the theme into a fiery visualization of lava balls.
 
 ### Gothic
-This templates is inspired by the gothic theme and it will give you a horror vibe.
 
-### Marbles 
-Marbles will change the theme to a marble balls effect and it gives you a marble effect.
+Inspired by gothic themes, this template creates a spooky, horror-like atmosphere.
 
+### Marbles
+
+The Marbles template gives the balls a marble-like appearance, evoking the feel of playing with real marbles.
 
 # Waves
 
-Waves is an satisfying thing and it is like an polester sheet like texture.
+Waves offer a satisfying visual effect, resembling a polyester sheet-like texture with vertical lines extending from the top to the bottom of the screen, moving like a net.
 
 ## Wave Color
-Waves Color option allows you to change the color of the waves and you can select your own.
+
+Customize the color of the waves with the Wave Color option.
 
 ## BG Color
-This option will change the color of the background. As you like.
+
+Change the background color to your liking using this option.
 
 ## Amplitude
-This option will change the texture of the background and it is a game changer! this option can also change the texture more vibrant.
+
+Adjust the size of the waves using the Amplitude setting. This can make the texture more vibrant.
 
 ## Friction
-Friction is an option which can be more satisfying if you increase it. It makes the movement more flexible.
 
-##  SpeedX & SpeedY
-SpeedX makes the movement of the background more speeder Horizondally and the SpeedY will do the opposite.
+Increase the Friction setting for a more satisfying and flexible wave movement.
 
-## GapX and GapY
-This option can change the distanse between the waves the GapY do the opposite.
+## SpeedX & SpeedY
+
+SpeedX controls the horizontal speed of the waves, while SpeedY controls their vertical speed.
+
+## GapX & GapY
+
+GapX adjusts the horizontal spacing between the waves, and GapY adjusts the vertical spacing.
+
+# Shape Blur
+
+Shape Blur creates a ghostly blur effect that can be applied to shapes.
+
+## Shape Size
+
+This setting allows you to adjust the size of the shapes.
+
+## Border Radius
+
+Change the border radius of the shapes using this option.
+
+## Effect Size
+
+Effect Size adjusts the scale of the blur effect, allowing you to apply it over wider or smaller areas.
+
+## Effect Edge
+
+Effect Edge controls the smoothness of the blur effect's edges. Increasing the value results in smoother edges, while decreasing it creates sharper edges.
+
+## Squid Game Mode
+
+This special template features shapes inspired by the Korean series "Squid Game," including circles, squares, and triangles.
+
+
+
+# Blob Cursor
+
+Blob Cursor adds a slime-like blob that follows your mouse movements.
+
+## Blob Color
+
+Use this option to select the color of the blob.
+
+## BG Color
+
+Change the background color with this option.
+
+## Templates
+
+### Gum
+
+The Gum template gives the blob a stretchy, gum-like appearance.
+
+### Blobby
+
+The Blobby template adds a more playful and satisfying color effect to the blob.
+
+# Splash Cursor
+
+Splash Cursor features a fluid-like object that moves toward your cursor, offering a refreshing visual experience.
+
+## Radius
+
+Adjust the radius of the fluid with this option.
+
+---
+
+This is the user guide for the app "React Bits Experience," created to showcase the power of React animations. Users can customize the animations through dedicated settings pages for each feature.
 
