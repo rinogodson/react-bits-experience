@@ -132,7 +132,7 @@ function Page() {
           </a>
           <a
             className="link"
-            href="https://github.com/rinogodson"
+            href="https://github.com/rinogodson/react-bits-experience/blob/main/USERGUIDE.md"
           >
             GUIDE
           </a>
