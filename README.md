@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# React Bits Experience
+
+# [VISIT](https://react-bits-experience.vercel.app/)
+
+React Bits Experience is an interactive app designed to showcase the power of React animations. Users can explore various animation features and customize them using dedicated settings pages for each feature.
+
+## Features
+
+### Magnet Lines
+- **Overview**: Interactive lines that respond to cursor movements.
+- **Customizations**:
+  - **Size**: Adjust grid size.
+  - **Height & Width**: Modify the dimensions of individual lines.
+  - **Border Radius**: Customize the corners of the lines.
+  - **Color**: Choose your favorite line color.
+  - **BG Color**: Change the background color.
+- **Templates**:
+  - **Candy**: Playful and cute visuals.
+  - **Sun**: Animations resembling sun rays.
+  - **Aim**: Lines align toward the cursor, inspired by a gun’s scope.
+
+### Ballpit
+- **Overview**: Fun, interactive balls for entertainment and relaxation.
+- **Customizations**:
+  - **Count**: Adjust the number of balls.
+  - **Color**: Choose up to three colors for the balls.
+  - **Min. Size & Max. Size**: Define the size range of the balls.
+  - **Light Size**: Adjust the size of the light ball.
+  - **Hide/Show Light**: Toggle light ball visibility.
+  - **Light Intensity**: Modify the brightness of the light ball.
+  - **Gravity**: Enable or disable gravity to control ball movement.
+- **Templates**:
+  - **Lava**: Fiery lava ball visuals.
+  - **Gothic**: Spooky, gothic-themed atmosphere.
+  - **Marbles**: Marble-like appearance.
+
+### Waves
+- **Overview**: Polyester sheet-like texture with moving vertical lines.
+- **Customizations**:
+  - **Wave Color**: Customize wave colors.
+  - **BG Color**: Change background color.
+  - **Amplitude**: Adjust wave size.
+  - **Friction**: Control wave movement flexibility.
+  - **SpeedX & SpeedY**: Modify horizontal and vertical wave speeds.
+  - **GapX & GapY**: Adjust horizontal and vertical spacing.
+
+### Shape Blur
+- **Overview**: Ghostly blur effect applied to shapes.
+- **Customizations**:
+  - **Shape Size**: Adjust the size of shapes.
+  - **Border Radius**: Customize shape corners.
+  - **Effect Size**: Control the scale of the blur effect.
+  - **Effect Edge**: Adjust edge smoothness for the blur.
+- **Template**:
+  - **Squid Game Mode**: Shapes inspired by the Korean series.
+
+### Blob Cursor
+- **Overview**: A slime-like blob follows mouse movements.
+- **Customizations**:
+  - **Blob Color**: Select blob color.
+  - **BG Color**: Change background color.
+- **Templates**:
+  - **Gum**: Stretchy, gum-like blob.
+  - **Blobby**: Playful, colorful blob effect.
+
+### Splash Cursor
+- **Overview**: Fluid-like object moves toward the cursor.
+- **Customizations**:
+  - **Radius**: Adjust the fluid radius.
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Clone the repository and install dependencies:
+```
+git clone https://github.com/rinogodson/react-bits-experience.git
+cd react-bits-experience
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
+```
+npm start
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Explore and customize animations through the app interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the MIT License.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Happy animating with React Bits Experience!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Used Figma for Design, Used AI Companionship.
