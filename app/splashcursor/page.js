@@ -2,6 +2,7 @@
 import React from 'react'
 import Slider from '../components/uiverse/slider'
 import SplashCursor from '@/src/blocks/Animations/SplashCursor/SplashCursor'
+import { Hash, Radius, Settings } from 'lucide-react'
 
 function Page() {
   const [splashProps, setSplashProps] = React.useState({
@@ -12,6 +13,7 @@ function Page() {
     force: 5500,
     colorSpeed: 10,
   })
+
   console.log(splashProps);
   
 
@@ -25,38 +27,25 @@ function Page() {
   return (
     <div>
       <SplashCursor
-      SIM_RESOLUTION = {splashProps.simResolution}
-      PRESSURE = {splashProps.pressure}
-      CURL = {splashProps.curls}
-      SPLAT_RADIUS = {splashProps.radius}
-      SPLAT_FORCE = {splashProps.force}
-      COLOR_UPDATE_SPEED = {splashProps.colorSpeed}
+        SIM_RESOLUTION={splashProps.simResolution}
+        PRESSURE={splashProps.pressure}
+        CURL={splashProps.curls}
+        SPLAT_RADIUS={splashProps.radius}
+        SPLAT_FORCE={splashProps.force}
+        COLOR_UPDATE_SPEED={splashProps.colorSpeed}
       />
 
-<div className="settingsCont" style={{ position: "relative" }}>
-        <p className="settingsTitle">{`-> Settings <-`}</p>
+      <div className="settingsCont" style={{ position: "relative" }}>
+         <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
+                  <Settings size={30} />
+                  <p className="flex justify-center items-center">{`Settings`}</p>
+                </div>
         <div
           className="w-full grid gap-[10px]"
           style={{ gridTemplateColumns: "1fr 110px" }}
         >
-          {/* <Slider
-            minimum={25}
-            maximum={200}
-            text={"Radius"}
-            value={splashProps.radius}
-            onChangeFn={(e) => {
-              if (
-                parseInt(e.target.value) >= 25 &&
-                parseInt(e.target.value) <= 200
-              ) {
-                setBallProps((prev) => {
-                  return { ...prev, count: parseInt(e.target.value) };
-                });
-              }
-            }}
-          /> */}
-          
           <Slider
+          icon={(<Radius size={20}/>)}
             minimum={40}
             maximum={100}
             text={"Radius"}
@@ -75,9 +64,7 @@ function Page() {
         <p>Reload if FPS issues.</p>
       </div>
     </div>
-
-    
-  )
+  );
 }
 
 export default Page

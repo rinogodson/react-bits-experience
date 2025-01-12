@@ -19,36 +19,36 @@ function Page() {
         animateBy="letters"
       />
       <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 0.8, scale: 1 }}
-      whileHover={{ opacity: 1, scale: 1.15 }}
-      transition={{
-        duration: 0.5,
-        type: "spring",
-        damping: "20",
-        stiffness: "300",
-      }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 0.8, scale: 1 }}
+        whileHover={{ opacity: 1, scale: 1.15 }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: "20",
+          stiffness: "300",
+        }}
         ref={containerRef}
-        className="tagline"
+        className="tagline w-full py-[50px]"
       >
         <VariableProximity
           label={"Have you seen your app dance and users giggle? Hover!"}
-          className={'small-tagline'}
-          fromFontVariationSettings="'wght' 700, 'opsz' 9"
+          className={"small-tagline"}
+          fromFontVariationSettings="'wght' 600, 'opsz' 9"
           toFontVariationSettings="'wght' 1000, 'opsz' 40"
           containerRef={containerRef}
-          radius={100}
-          falloff='linear'
+          radius={200}
+          falloff="exponential"
         />
-        <br/>
+        <br />
         <VariableProximity
           label={"Experience the power of React Animations here!"}
-          className={'big-tagline'}
-          fromFontVariationSettings="'wght' 700, 'opsz' 9"
+          className={"big-tagline"}
+          fromFontVariationSettings="'wght' 600, 'opsz' 9"
           toFontVariationSettings="'wght' 1000, 'opsz' 40"
           containerRef={containerRef}
-          radius={100}
-          falloff='linear'
+          radius={200}
+          falloff="exponential"
         />
       </motion.div>
       <div className="cardsCont">
@@ -64,7 +64,7 @@ function Page() {
                 stiffness: 250,
                 damping: 12,
               }}
-            > 
+            >
               <SpotlightCard
                 key={index}
                 className="card"
@@ -83,31 +83,66 @@ function Page() {
             </motion.div>
           );
         })}
-        <motion.div
-              initial={{ opacity: 0, translateY: "100px", rotate: "10deg" }}
-              animate={{ opacity: 1, translateY: "0px", rotate: "0deg" }}
-              transition={{
-                duration: 1,
-                type: "spring",
-                stiffness: 250,
-                damping: 12,
-              }}
-            > 
-              <SpotlightCard
-                className="card"
-                spotlightColor="rgba(255, 255, 255, 0.05)"
-              >
-                <img className="cardImg" src={"https://placehold.co/400x400/1B1B1B/white?text=Coming+Soon+..."} />
-                <h1 className="cardHeading">More Coming Soon...</h1>
-                <a style={{opacity:"0"}} className="cardBt">
-                  <ShinyText
-                    text={"Click to try."}
-                    speed={3}
-                    className="custom-class"
-                  />
-                </a>
-              </SpotlightCard>
-            </motion.div>
+      </div>
+      <motion.div
+        initial={{ opacity: 0, translateY: "100px", rotate: "10deg" }}
+        animate={{ opacity: 1, translateY: "0px", rotate: "0deg" }}
+        transition={{
+          duration: 1,
+          type: "spring",
+          stiffness: 250,
+          damping: 12,
+        }}
+        style={{ marginBottom: "100px" }}
+      >
+        <SpotlightCard
+          className="card"
+          spotlightColor="rgba(255, 255, 255, 0.05)"
+        >
+          <h1 className="cardHeading" style={{ paddingInline: "20px" }}>
+            More Coming Soon...
+          </h1>
+        </SpotlightCard>
+      </motion.div>
+      <div
+        style={{
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          marginBottom: "50px",
+          width: "100%",
+          gap:"20px",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <span>Made with power of Love & Open Source.</span>
+        <div style={{display:"flex", gap:"20px"}}>
+          <a
+            className="link"
+            href="https://github.com/rinogodson/react-bits-experience"
+          >
+            Repo
+          </a>
+          <a
+            className="link"
+            href="https://github.com/rinogodson/react-bits-experience/blob/main/README.md"
+          >
+            README
+          </a>
+          <a
+            className="link"
+            href="https://github.com/rinogodson"
+          >
+            GUIDE
+          </a>
+          <a
+            className="link"
+            href="https://github.com/rinogodson"
+          >
+            Git Profile
+          </a>
+        </div>
       </div>
     </>
   );

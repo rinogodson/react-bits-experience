@@ -13,14 +13,16 @@ body{
     cursor: url(/cursor.svg), auto;
 }
 
-
-
+*{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
 input{
     color: #000;
 }
 
 .tagline{
-    margin-top: 40px;
     font-size: 25px;
     position: relative;
     font-family: "JetBrains Mono";
@@ -107,6 +109,7 @@ input{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 80px;
+    margin-bottom: 100px;
     margin-top: 100px;
 }
 
@@ -154,4 +157,20 @@ input{
 
 .small-tagline{
     font-size: 20px;
+}
+
+.templates{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.link{
+    background-color: #1b1b1b;
+    padding: 5px 12px;
+    width: fit-content;
+    border: #2b2b2b solid 1px;
+    border-radius: 10px;
 }

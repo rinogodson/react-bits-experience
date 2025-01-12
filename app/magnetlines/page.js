@@ -4,13 +4,21 @@ import MagnetLines from "@/src/blocks/Animations/MagnetLines/MagnetLines";
 import Slider from "../components/uiverse/slider";
 import ColorPicker from "../components/colorPicker/colorpicker";
 import Select from "../components/uiverse/select";
+import { BringToFront, Grid2x2, Ruler, Settings, Settings2 } from "lucide-react";
+import { motion } from "framer-motion";
 function Page() {
   const [gridLev, setGridLev] = React.useState(false);
 
   const [template, setTemplate] = React.useState("Custom")
 
-  React.useEffect(() => {
+  React.useEffect(()=>{
+      const index = templates.findIndex(item => item.name === template);
+      setMagneticProps(templates[index].set);
+    }, [template])
+  
+  const handleChange = (e)=>{setTemplate(e.target.value)}
 
+  React.useEffect(() => {
     setGridLev(false);
     setTimeout(() => {
       setGridLev(true);
@@ -47,12 +55,27 @@ function Page() {
         )}
       </div>
 
-      <div className="settingsCont" style={{ position: "relative" }}>
-        <p className="settingsTitle">{`-> Settings <-`}</p>
-        <p>Templates</p>
-        <Select templates={templates} template={template} setTemplate={setTemplate} setProps={setMagneticProps} />
+      <motion.div
+      initial={{opacity:0, translateY:"100px", translateX: "100px"}}
+      animate={{opacity:1, translateY:"0px", translateX: "0px"}}
+      transition={{duration: 0.5, type: "spring", damping:20}}
+      layout
+      className="settingsCont" style={{ position: "relative" }}>
+        <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
+          <Settings size={30} />
+          <p className="flex justify-center items-center">{`Settings`}</p>
+        </div>
+        <p className="templates">
+          <Settings2 size={18}/> Templates
+        </p>
+        <Select
+          templates={templates}
+          template={template}
+          handleChange={handleChange}
+        />
         <div className="division"></div>
         <Slider
+          icon={<Grid2x2 size={20} />}
           minimum={1}
           maximum={20}
           text={"Size"}
@@ -76,6 +99,7 @@ function Page() {
         <div className="grid grid-cols-2 gap-[10px] w-full">
           <Slider
             text={"Height"}
+            icon={<Ruler size={20} />}
             value={magneticProps.lineHeight}
             onChangeFn={(e) => {
               if (
@@ -89,6 +113,7 @@ function Page() {
             }}
           />
           <Slider
+            icon={<Ruler size={20} />}
             text={"Width"}
             value={magneticProps.lineWidth}
             onChangeFn={(e) => {
@@ -104,6 +129,7 @@ function Page() {
           />
         </div>
         <Slider
+          icon={<BringToFront size={20} />}
           minimum={0}
           maximum={100}
           text={"Border Radius"}
@@ -142,7 +168,7 @@ function Page() {
         </div>
         <div className="division"></div>
         <p>Reload if FPS issues.</p>
-      </div>
+      </motion.div>
     </div>
   );
 }

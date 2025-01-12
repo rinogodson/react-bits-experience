@@ -2,13 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Select = ({templates, template, setTemplate, setProps}) => {
-
-  React.useEffect(()=>{
-    const index = templates.findIndex(item => item.name === template);
-    setProps(templates[index].set);
-  }, [template])
-
+const Select = ({templates, template, setTemplate, handleChange}) => {
   return (
     <StyledWrapper className='w-full'>
       <div className="radio-inputs">
@@ -20,7 +14,7 @@ const Select = ({templates, template, setTemplate, setProps}) => {
                 name="radio"
                 value={item.name}
                 checked={template === item.name}
-                onChange={(e)=>setTemplate(e.target.value)}
+                onChange={handleChange}
               />
               <span className="name">{item.name}</span>
             </label>

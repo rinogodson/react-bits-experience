@@ -2,11 +2,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const Slider = ({ minimum = 0, maximum = 100, text, value, onChangeFn, style }) => {
+const Slider = ({icon, minimum = 0, maximum = 100, text, value, onChangeFn, style }) => {
   return (
     <StyledWrapper className="w-full" style={{...style, transition: "all 300ms ease"}}>
       <div className="PB-range-slider-div">
+        <div className="flex flex-row justify-center items-center gap-[10px] w-full ">
+        {icon}
         <p className="PB-range-slidertitle">{text}</p>
+        </div>
         <div
           style={{
             width: "100%",
@@ -101,7 +104,7 @@ const StyledWrapper = styled.div`
   }
 
   .PB-range-slidertitle {
-    font-size: 1.2em;
+    font-size: 1.1em;
     width: 100%;
   }
 `;

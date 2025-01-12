@@ -1,20 +1,34 @@
-"use client"
-import React from 'react'
-import BlobCursor from '@/src/blocks/Animations/BlobCursor/BlobCursor'
-import ColorPicker from '../components/colorPicker/colorpicker'
-import Select from '../components/uiverse/select'
+"use client";
+import React, { useState } from "react";
+import BlobCursor from "@/src/blocks/Animations/BlobCursor/BlobCursor";
+import ColorPicker from "../components/colorPicker/colorpicker";
+import Select from "../components/uiverse/select";
+import { Settings, Settings2 } from "lucide-react";
 function Page() {
-  const [showBlob, setShowBlob] = React.useState(true)
-  const [template, setTemplate] = React.useState("Custom")
+  const [showBlob, setShowBlob] = React.useState(true);
+  const [template, setTemplate] = React.useState("Custom");
 
   const [blobProps, setBlobProps] = React.useState({
     bgColor: "#0b0b0b",
     blobColor: "#663399",
-    blobType: "circle"
-  })
+    blobType: "circle",
+  });
+
+  React.useEffect(() => {
+    const index = templates.findIndex((item) => item.name === template);
+    setBlobProps(templates[index].set);
+  }, [template]);
+
+  const handleChange = (e) => {
+    setTemplate(e.target.value);
+  };
+
   return (
     <div className="w-screen h-screen flex justify-between items-center">
-      <div className={`w-[100vh] aspect-square`} style={{backgroundColor: blobProps.bgColor}}>
+      <div
+        className={`w-[100vh] aspect-square`}
+        style={{ backgroundColor: blobProps.bgColor }}
+      >
         {showBlob && (
           <BlobCursor
             blobType={blobProps.blobType}
@@ -23,10 +37,20 @@ function Page() {
         )}
       </div>
       <div className="settingsCont" style={{ position: "relative" }}>
-        <p className="settingsTitle">{`-> Settings <-`}</p>
-        <p>Templates</p>
-        <Select templates={templates} template={template} setTemplate={setTemplate} setProps={setBlobProps} />
-        <div className='grid grid-cols-2 gap-[10px]'>
+        <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
+          <Settings size={30} />
+          <p className="flex justify-center items-center">{`Settings`}</p>
+        </div>
+        <p className="templates">
+          <Settings2 size={18}/> Templates
+        </p>
+        <Select
+          templates={templates}
+          template={template}
+          handleChange={handleChange}
+        />
+        <div className="division"></div>
+        <div className="grid grid-cols-2 gap-[10px]">
           <ColorPicker
             label="Blob Color"
             value={blobProps.blobColor}
@@ -53,7 +77,7 @@ function Page() {
   );
 }
 
-export default Page
+export default Page;
 
 const templates = [
   {

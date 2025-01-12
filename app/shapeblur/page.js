@@ -3,7 +3,7 @@ import React from "react";
 import ShapeBlur from "@/src/blocks/Backgrounds/ShapeBlur/ShapeBlur";
 import Slider from "../components/uiverse/slider";
 import Toggle from "../components/toggle/toggle";
-import { Circle, Square, Triangle } from "lucide-react";
+import { BringToFront, Circle, Ratio, Scaling, Settings, Sparkle, Square, Triangle } from "lucide-react";
 function Page() {
   const [shapeProps, setShapeProps] = React.useState({
     variation: 0,
@@ -65,24 +65,52 @@ function Page() {
       </div>
 
       <div className="settingsCont" style={{ position: "relative" }}>
-        <p className="settingsTitle">{`-> Settings <-`}</p>
-        <div className="grid grid-cols-2 gap-[10px] w-full" style={{gridTemplateColumns:"110px 1fr"}}>
-        <Toggle value={shapeProps.squidGame} text={shapeProps.squidGame ? "Squid Game Mode On" : "Squid Game Mode Off"}
-        onChangeFn={()=>{
-          setShapeProps((prev)=>{return {...prev, squidGame: !prev.squidGame, circleEdge: (prev.circleEdge === 0.66 ? 0.45 : 0.66), circleSize: (prev.circleSize === 0.1 ? 0.24 : 0.1),}})
-        }}
+        <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
+          <Settings size={30} />
+          <p className="flex justify-center items-center">{`Settings`}</p>
+        </div>
+        <div
+          className="grid grid-cols-2 gap-[10px] w-full"
+          style={{ gridTemplateColumns: "110px 1fr" }}
         >
-          <div className="flex gap-[3px]">
-            <Circle/>
-            <Square/>
-            <Triangle/>
-          </div>
-        </Toggle>
+          <Toggle
+            value={shapeProps.squidGame}
+            text={
+              shapeProps.squidGame
+                ? "Squid Game Mode On"
+                : "Squid Game Mode Off"
+            }
+            onChangeFn={() => {
+              setShapeProps((prev) => {
+                return {
+                  ...prev,
+                  squidGame: !prev.squidGame,
+                  circleEdge: prev.circleEdge === 0.66 ? 0.45 : 0.66,
+                  circleSize: prev.circleSize === 0.1 ? 0.24 : 0.1,
+                };
+              });
+            }}
+          >
+            <div className="flex gap-[3px]">
+              <Circle />
+              <Square />
+              <Triangle />
+            </div>
+          </Toggle>
           <Slider
+            icon={<Scaling size={20} />}
             minimum={0}
             maximum={100}
             text={"Shape Size"}
-            style={shapeProps.squidGame ? {transform:"scale(0.9)", opacity: 0.5, pointerEvents:"none"} : {transform:"scale(1)", opacity:1, pointerEvents:"all"}}
+            style={
+              shapeProps.squidGame
+                ? {
+                    transform: "scale(0.9)",
+                    opacity: 0.5,
+                    pointerEvents: "none",
+                  }
+                : { transform: "scale(1)", opacity: 1, pointerEvents: "all" }
+            }
             value={Math.round(shapeProps.shapeSize * 100)}
             onChangeFn={(e) => {
               let val = parseFloat(e.target.value) / 100;
@@ -96,8 +124,26 @@ function Page() {
         </div>
 
         <div className="division"></div>
-        <div className="grid w-full gap-[10px] grid-cols-2" style={shapeProps.squidGame ? {transform:"scale(0.9)", opacity: 0.5, pointerEvents:"none", transition: "all 300ms ease"} : {transform:"scale(1)", opacity:1, pointerEvents:"all", transition: "all 300ms ease"}}>
+        <div
+          className="grid w-full gap-[10px] grid-cols-2"
+          style={
+            shapeProps.squidGame
+              ? {
+                  transform: "scale(0.9)",
+                  opacity: 0.5,
+                  pointerEvents: "none",
+                  transition: "all 300ms ease",
+                }
+              : {
+                  transform: "scale(1)",
+                  opacity: 1,
+                  pointerEvents: "all",
+                  transition: "all 300ms ease",
+                }
+          }
+        >
           <Slider
+            icon={<BringToFront size={20} />}
             minimum={0}
             maximum={100}
             text={"Border Radius"}
@@ -113,6 +159,7 @@ function Page() {
           />
 
           <Slider
+            icon={<Ratio size={20} />}
             minimum={0}
             maximum={100}
             text={"Border Size"}
@@ -131,6 +178,7 @@ function Page() {
         <div className="division"></div>
         <div className="grid w-full gap-[10px] grid-cols-2">
           <Slider
+            icon={<Sparkle size={20} />}
             minimum={0}
             maximum={100}
             text={"Effect Size"}
@@ -146,6 +194,7 @@ function Page() {
           />
 
           <Slider
+            icon={<Sparkle size={20} />}
             minimum={0}
             maximum={100}
             text={"Effect Edge"}

@@ -1,7 +1,22 @@
 "use client";
 import React, { useEffect } from "react";
 import Ballpit from "@/src/blocks/Backgrounds/Ballpit/Ballpit";
-import { Earth, Lightbulb, LightbulbOff } from "lucide-react";
+import {
+  ArrowDownFromLine,
+  Earth,
+  Expand,
+  Hash,
+  Lightbulb,
+  LightbulbOff,
+  Settings,
+  Settings2,
+  Shrink,
+  Sparkles,
+  Sun,
+  SunDim,
+  SunIcon,
+  SunMedium,
+} from "lucide-react";
 import Slider from "../components/uiverse/slider";
 import ColorPicker from "../components/colorPicker/colorpicker";
 import Toggle from "../components/toggle/toggle";
@@ -10,9 +25,8 @@ import Select from "../components/uiverse/select";
 function Page() {
   const [showBalls, setShowBalls] = React.useState(true);
   console.log("SHOWBALLS", showBalls);
+  const [template, setTemplate] = React.useState("Custom");
 
-  const [template, setTemplate] = React.useState("Custom")
-  
   const [ballProps, setBallProps] = React.useState({
     count: 150,
     gravity: 1,
@@ -24,19 +38,38 @@ function Page() {
     minSize: 0.5,
     maxSize: 1.2,
     size0: 2,
-    bgColor: "#000"
+    bgColor: "#000",
   });
 
   console.log(ballProps);
-  
 
-  useEffect(()=>{
-    setShowBalls(false)
+  useEffect(() => {
+    setShowBalls(false);
     setTimeout(() => {
-      setShowBalls(true)
+      setShowBalls(true);
     }, 1);
-  }, [showBalls, ballProps.colors, ballProps.count, ballProps.followCursor, ballProps.friction, ballProps.gravity, ballProps.lightIntensity, ballProps.maxSize, ballProps.minSize, ballProps.size0, ballProps.wallBounce ])
+  }, [
+    showBalls,
+    ballProps.colors,
+    ballProps.count,
+    ballProps.followCursor,
+    ballProps.friction,
+    ballProps.gravity,
+    ballProps.lightIntensity,
+    ballProps.maxSize,
+    ballProps.minSize,
+    ballProps.size0,
+    ballProps.wallBounce,
+  ]);
 
+  React.useEffect(() => {
+    const index = templates.findIndex((item) => item.name === template);
+    setBallProps(templates[index].set);
+  }, [template]);
+
+  const handleChange = (e) => {
+    setTemplate(e.target.value);
+  };
   return (
     <div className="flex justify-between items-center w-screen h-screen">
       <div className="ballCont" style={{ backgroundColor: ballProps.bgColor }}>
@@ -56,14 +89,26 @@ function Page() {
         )}
       </div>
       <div className="settingsCont" style={{ position: "relative" }}>
-        <p className="settingsTitle">{`-> Settings <-`}</p>
-        <p>Templates</p>
-        <Select templates={templates} template={template} setTemplate={setTemplate} setProps={setBallProps} />
+        <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
+          <Settings size={30} />
+          <p className="flex justify-center items-center">{`Settings`}</p>
+        </div>
+        <p className="templates">
+          <Settings2 size={18}/> Templates
+        </p>
+        <Select
+          templates={templates}
+          template={template}
+          setTemplate={setTemplate}
+          handleChange={handleChange}
+        />
+        <div className="division"></div>
         <div
           className="w-full grid gap-[10px]"
           style={{ gridTemplateColumns: "1fr 110px" }}
         >
           <Slider
+            icon={<Hash size={20} />}
             minimum={25}
             maximum={200}
             text={"Count"}
@@ -95,10 +140,14 @@ function Page() {
               }))
             }
           >
-            {ballProps.followCursor ? <Lightbulb size={30} /> : <LightbulbOff size={30}/>}
+            {ballProps.followCursor ? (
+              <Lightbulb size={30} />
+            ) : (
+              <LightbulbOff size={30} />
+            )}
           </Toggle>
         </div>
-        <div className="division"/>
+        <div className="division" />
         <div className="grid w-full gap-[10px] grid-cols-3">
           <ColorPicker
             label="Color 1"
@@ -143,9 +192,10 @@ function Page() {
             }}
           />
         </div>
-        <div className="division"/>
+        <div className="division" />
         <div className="grid grid-cols-2 gap-[10px] w-full">
           <Slider
+            icon={<Shrink size={20} />}
             minimum={20}
             maximum={ballProps.maxSize * 100}
             text={"Min. Size"}
@@ -160,6 +210,7 @@ function Page() {
             }}
           />
           <Slider
+            icon={<Expand size={20} />}
             minimum={ballProps.minSize * 100}
             maximum={200}
             text={"Max. Size"}
@@ -176,6 +227,7 @@ function Page() {
         </div>
         <div className="grid grid-cols-2 gap-[10px] w-full">
           <Slider
+            icon={<Sparkles size={20} />}
             minimum={10}
             maximum={20}
             text={"Light Size"}
@@ -186,12 +238,21 @@ function Page() {
                 parseFloat(e.target.value) <= 20
               ) {
                 setBallProps((prev) => {
-                  return { ...prev, size0: parseFloat(e.target.value)/10 };
+                  return { ...prev, size0: parseFloat(e.target.value) / 10 };
                 });
               }
             }}
           />
           <Slider
+            icon={
+              ballProps.lightIntensity > 300 ? (
+                <Sun size={20} />
+              ) : ballProps.lightIntensity > 200 ? (
+                <SunMedium size={20} />
+              ) : (
+                <SunDim size={20} />
+              )
+            }
             minimum={25}
             maximum={500}
             text={"Light Intensity"}
@@ -208,28 +269,31 @@ function Page() {
             }}
           />
         </div>
-        <div className="division"/>
-        <div className="w-full grid gap-[10px]"
-          style={{ gridTemplateColumns: "110px 1fr" }}>
-        <Toggle
+        <div className="division" />
+        <div
+          className="w-full grid gap-[10px]"
+          style={{ gridTemplateColumns: "110px 1fr" }}
+        >
+          <Toggle
             text={[
               <span key={"d/e"}>
-                {!(ballProps.gravity>0) ? "Enable" : "Disable"}
+                {!(ballProps.gravity > 0) ? "Enable" : "Disable"}
               </span>,
               <br key={"br//2"} />,
               <span key={"gravity."}>Gravity</span>,
             ]}
-            value={(ballProps.gravity>0)}
+            value={ballProps.gravity > 0}
             onChangeFn={() =>
               setBallProps((prev) => ({
                 ...prev,
-                gravity: prev.gravity>0 ? 0 : 1,
+                gravity: prev.gravity > 0 ? 0 : 1,
               }))
             }
           >
-            <Earth/>
+            <Earth />
           </Toggle>
-        <Slider
+          <Slider
+            icon={<ArrowDownFromLine size={20} />}
             minimum={0}
             maximum={100}
             text={"Gravity"}
@@ -240,7 +304,7 @@ function Page() {
                 parseFloat(e.target.value) <= 100
               ) {
                 setBallProps((prev) => {
-                  return { ...prev, gravity: parseInt(e.target.value)/100 };
+                  return { ...prev, gravity: parseInt(e.target.value) / 100 };
                 });
               }
             }}
@@ -254,7 +318,6 @@ function Page() {
 }
 
 export default Page;
-
 
 const templates = [
   {
@@ -284,7 +347,7 @@ const templates = [
       colors: ["#ff7700", "#ff8800", "#fd0808"],
       lightIntensity: 25,
       minSize: 0.2,
-      maxSize: 0.90,
+      maxSize: 0.9,
       size0: 1,
       bgColor: "#000",
     },

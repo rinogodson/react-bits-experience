@@ -5,11 +5,22 @@ import Slider from "../components/uiverse/slider";
 import ColorPicker from "../components/colorPicker/colorpicker";
 
 import Select from "../components/uiverse/select";
+import {
+  AudioWaveform,
+  ChartNoAxesGantt,
+  FoldHorizontal,
+  FoldVertical,
+  Orbit,
+  Rabbit,
+  Settings,
+  Settings2,
+  Turtle,
+} from "lucide-react";
 
 function Page() {
   const [showWave, setShowWave] = React.useState(false);
 
-  const [template, setTemplate] = React.useState("Custom")
+  const [template, setTemplate] = React.useState("Custom");
 
   const [waveProps, setWaveProps] = React.useState({
     lineColor: "#3b3b3b",
@@ -40,6 +51,14 @@ function Page() {
     waveProps.yGap,
   ]);
 
+  React.useEffect(() => {
+    const index = templates.findIndex((item) => item.name === template);
+    setWaveProps(templates[index].set);
+  }, [template]);
+
+  const handleChange = (e) => {
+    setTemplate(e.target.value);
+  };
   return (
     <div className="w-screen h-screen flex justify-between items-center">
       <div className="w-[100vh] aspect-square">
@@ -61,9 +80,19 @@ function Page() {
       </div>
 
       <div className="settingsCont" style={{ position: "relative" }}>
-        <p className="settingsTitle">{`-> Settings <-`}</p>
-        <p>Templates</p>
-        <Select templates={templates} template={template} setTemplate={setTemplate} setProps={setWaveProps}/>
+        <div className="settingsTitle flex items-center justify-center flex-row gap-[15px]">
+          <Settings size={30} />
+          <p className="flex justify-center items-center">{`Settings`}</p>
+        </div>
+        <p className="templates">
+          <Settings2 size={18}/> Templates
+        </p>
+        <Select
+          templates={templates}
+          template={template}
+          handleChange={handleChange}
+        />
+        <div className="division"></div>
         <div className="w-full grid grid-cols-2 gap-[10px]">
           <ColorPicker
             label={"Wave Color"}
@@ -86,6 +115,7 @@ function Page() {
         </div>
         <div className="division"></div>
         <Slider
+          icon={<AudioWaveform size={20} />}
           minimum={0}
           maximum={100}
           text={"Amplitude"}
@@ -102,6 +132,7 @@ function Page() {
         <div className="division"></div>
         <div className="grid grid-cols-2 gap-[10px]">
           <Slider
+            icon={<Orbit size={20} />}
             minimum={0}
             maximum={99}
             text={"Friction"}
@@ -116,6 +147,7 @@ function Page() {
             }}
           />
           <Slider
+            icon={<ChartNoAxesGantt size={20} />}
             minimum={0}
             maximum={10}
             text={"Tension"}
@@ -133,6 +165,13 @@ function Page() {
         <div className="division"></div>
         <div className="grid grid-cols-2 gap-[10px]">
           <Slider
+            icon={
+              waveProps.waveSpeedX < 0.05 ? (
+                <Turtle size={20} />
+              ) : (
+                <Rabbit size={20} />
+              )
+            }
             minimum={1}
             maximum={10}
             text={"SpeedX"}
@@ -147,6 +186,13 @@ function Page() {
             }}
           />
           <Slider
+            icon={
+              waveProps.waveSpeedY < 0.05 ? (
+                <Turtle size={20} />
+              ) : (
+                <Rabbit size={20} />
+              )
+            }
             minimum={1}
             maximum={10}
             text={"SpeedY"}
@@ -164,6 +210,7 @@ function Page() {
         <div className="division"></div>
         <div className="grid grid-cols-2 gap-[10px]">
           <Slider
+            icon={<FoldHorizontal size={20} />}
             minimum={10}
             maximum={36}
             text={"GapX"}
@@ -180,6 +227,7 @@ function Page() {
             }
           />
           <Slider
+            icon={<FoldVertical size={20} />}
             minimum={10}
             maximum={36}
             text={"GapY"}
@@ -204,7 +252,6 @@ function Page() {
 }
 
 export default Page;
-
 
 const templates = [
   {
