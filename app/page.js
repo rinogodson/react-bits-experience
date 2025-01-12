@@ -5,7 +5,10 @@ import SpotlightCard from "@/src/blocks/Components/SpotlightCard/SpotlightCard";
 import ShinyText from "@/src/blocks/TextAnimations/ShinyText/ShinyText";
 import { motion } from "framer-motion";
 
+import VariableProximity from "@/src/blocks/TextAnimations/VariableProximity/VariableProximity";
+
 function Page() {
+  const containerRef = React.useRef(null);
   return (
     <>
       <BlurText
@@ -15,24 +18,39 @@ function Page() {
         direction="top"
         animateBy="letters"
       />
-      <motion.p
-        initial={{ opacity: 0, scaleX: 0 }}
-        animate={{ opacity: 0.8, scaleX: 1 }}
-        whileHover={{ opacity: 1, scaleX: 1.15 }}
-        transition={{
-          duration: 0.5,
-          type: "spring",
-          damping: "20",
-          stiffness: "300",
-        }}
+      <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 0.8, scale: 1 }}
+      whileHover={{ opacity: 1, scale: 1.15 }}
+      transition={{
+        duration: 0.5,
+        type: "spring",
+        damping: "20",
+        stiffness: "300",
+      }}
+        ref={containerRef}
         className="tagline"
       >
-        Have you seen your app dance and users giggle?
-        <br />
-        <span style={{ fontSize: "30px" }}>
-          Experience the power of React Animations here!
-        </span>
-      </motion.p>
+        <VariableProximity
+          label={"Have you seen your app dance and users giggle? Hover!"}
+          className={'small-tagline'}
+          fromFontVariationSettings="'wght' 700, 'opsz' 9"
+          toFontVariationSettings="'wght' 1000, 'opsz' 40"
+          containerRef={containerRef}
+          radius={100}
+          falloff='linear'
+        />
+        <br/>
+        <VariableProximity
+          label={"Experience the power of React Animations here!"}
+          className={'big-tagline'}
+          fromFontVariationSettings="'wght' 700, 'opsz' 9"
+          toFontVariationSettings="'wght' 1000, 'opsz' 40"
+          containerRef={containerRef}
+          radius={100}
+          falloff='linear'
+        />
+      </motion.div>
       <div className="cardsCont">
         {experiences.map((item, index) => {
           return (
@@ -65,6 +83,31 @@ function Page() {
             </motion.div>
           );
         })}
+        <motion.div
+              initial={{ opacity: 0, translateY: "100px", rotate: "10deg" }}
+              animate={{ opacity: 1, translateY: "0px", rotate: "0deg" }}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 250,
+                damping: 12,
+              }}
+            > 
+              <SpotlightCard
+                className="card"
+                spotlightColor="rgba(255, 255, 255, 0.05)"
+              >
+                <img className="cardImg" src={"https://placehold.co/400x400/1B1B1B/white?text=Coming+Soon+..."} />
+                <h1 className="cardHeading">More Coming Soon...</h1>
+                <a style={{opacity:"0"}} className="cardBt">
+                  <ShinyText
+                    text={"Click to try."}
+                    speed={3}
+                    className="custom-class"
+                  />
+                </a>
+              </SpotlightCard>
+            </motion.div>
       </div>
     </>
   );
@@ -76,52 +119,32 @@ const experiences = [
   {
     name: "Magnet Lines",
     link: "/magnetlines",
-    image: "https://cloud-q4n1tz09u-hack-club-bot.vercel.app/0image.png",
+    image: "/image0.png",
   },
   {
     name: "Ballpit",
     link: "/ballpit",
-    image: "https://cloud-ap6m65cq7-hack-club-bot.vercel.app/0image.png",
-  },
-  {
-    name: "Hyperspeed",
-    link: "/hyperspeed",
-    image: "https://cloud-59ivdls58-hack-club-bot.vercel.app/075cb405aa96a0f0040a2f9579afa151ba10371df104120c0e21296ad21372da8.png",
+    image: "/image7.png",
   },
   {
     name: "Waves",
     link: "/waves",
-    image: "https://cloud-1yrvxo399-hack-club-bot.vercel.app/0image.png",
+    image: "/image5.png",
   },
   {
     name: "Shape Blur",
     link: "/shapeblur",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+    image: "/image4.png",
   },
   {
     name: "Blob Cursor",
     link: "/blobcursor",
     image:
-      "https://cloud-fh24cv1xr-hack-club-bot.vercel.app/0tiff_to_png.png",
-  },
-  {
-    name: "Stack",
-    link: "/stack",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
-  },
-  {
-    name: "Variable Proximity",
-    link: "variableproximity",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
-  },
-  {
-    name: "True Focus",
-    link: "/truefocus",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+      "/image3.png",
   },
   {
     name: "Splash Cursor",
     link: "/splashcursor",
-    image: "https://cloud-2jwq0ujd3-hack-club-bot.vercel.app/0image.png",
+    image: "/image1.png",
   },
 ];

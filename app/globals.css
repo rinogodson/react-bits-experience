@@ -13,6 +13,8 @@ body{
     cursor: url(/cursor.svg), auto;
 }
 
+
+
 input{
     color: #000;
 }
@@ -20,6 +22,7 @@ input{
 .tagline{
     margin-top: 40px;
     font-size: 25px;
+    position: relative;
     font-family: "JetBrains Mono";
     text-align: center;
 }
@@ -147,4 +150,8 @@ input{
     height: 2px;
     width: 100%;
     background-color: #1b1b1b;
+}
+
+.small-tagline{
+    font-size: 20px;
 }

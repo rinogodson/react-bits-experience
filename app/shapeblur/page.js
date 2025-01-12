@@ -41,24 +41,24 @@ function Page() {
               shapeSize={1.3} //YES
               roundness={1.3} // YES
               borderSize={0.08} // YES
-              circleSize={0.2}
-              circleEdge={0.5}
+              circleSize={shapeProps.circleSize}
+              circleEdge={shapeProps.circleEdge}
             />
             <ShapeBlur
               variation={0} // YES => 0->RoundedSquare 1->FilledCircle 2->CircleOutline 3->Triangle
               shapeSize={1.25} //YES
               roundness={0} // YES
               borderSize={0.08} // YES
-              circleSize={0.2}
-              circleEdge={0.5}
+              circleSize={shapeProps.circleSize}
+              circleEdge={shapeProps.circleEdge}
             />
             <ShapeBlur
               variation={3} // YES => 0->RoundedSquare 1->FilledCircle 2->CircleOutline 3->Triangle
               shapeSize={0.4} //YES
               roundness={0.4} // YES
               borderSize={0.04} // YES
-              circleSize={0.1}
-              circleEdge={0.5}
+              circleSize={shapeProps.circleSize}
+              circleEdge={shapeProps.circleEdge}
             />
           </>
         )}
@@ -69,7 +69,7 @@ function Page() {
         <div className="grid grid-cols-2 gap-[10px] w-full" style={{gridTemplateColumns:"110px 1fr"}}>
         <Toggle value={shapeProps.squidGame} text={shapeProps.squidGame ? "Squid Game Mode On" : "Squid Game Mode Off"}
         onChangeFn={()=>{
-          setShapeProps((prev)=>{return {...prev, squidGame: !prev.squidGame}})
+          setShapeProps((prev)=>{return {...prev, squidGame: !prev.squidGame, circleEdge: (prev.circleEdge === 0.66 ? 0.45 : 0.66), circleSize: (prev.circleSize === 0.1 ? 0.24 : 0.1),}})
         }}
         >
           <div className="flex gap-[3px]">
@@ -96,7 +96,7 @@ function Page() {
         </div>
 
         <div className="division"></div>
-        <div className="grid w-full gap-[10px] grid-cols-2">
+        <div className="grid w-full gap-[10px] grid-cols-2" style={shapeProps.squidGame ? {transform:"scale(0.9)", opacity: 0.5, pointerEvents:"none", transition: "all 300ms ease"} : {transform:"scale(1)", opacity:1, pointerEvents:"all", transition: "all 300ms ease"}}>
           <Slider
             minimum={0}
             maximum={100}
@@ -120,7 +120,6 @@ function Page() {
             onChangeFn={(e) => {
               let val = parseFloat(e.target.value) / 100;
               console.log("val", Math.round(shapeProps.borderSize * 100) + "%");
-
               if (val <= 1 && val >= 0) {
                 setShapeProps((prev) => {
                   return { ...prev, borderSize: val };
@@ -130,6 +129,40 @@ function Page() {
           />
         </div>
         <div className="division"></div>
+        <div className="grid w-full gap-[10px] grid-cols-2">
+          <Slider
+            minimum={0}
+            maximum={100}
+            text={"Effect Size"}
+            value={Math.round(shapeProps.circleSize * 100)}
+            onChangeFn={(e) => {
+              let val = parseFloat(e.target.value) / 100;
+              if (val <= 1 && val >= 0) {
+                setShapeProps((prev) => {
+                  return { ...prev, circleSize: val };
+                });
+              }
+            }}
+          />
+
+          <Slider
+            minimum={0}
+            maximum={100}
+            text={"Effect Edge"}
+            value={Math.round(shapeProps.circleEdge * 100)}
+            onChangeFn={(e) => {
+              let val = parseFloat(e.target.value) / 100;
+              console.log("val", Math.round(shapeProps.circleEdge * 100) + "%");
+              if (val <= 1 && val >= 0) {
+                setShapeProps((prev) => {
+                  return { ...prev, circleEdge: val };
+                });
+              }
+            }}
+          />
+        </div>
+        <div className="division"></div>
+        <p>Reload if FPS issues.</p>
       </div>
     </div>
   );
