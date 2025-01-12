@@ -10,6 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    cursor: url(/cursor.svg), auto;
 }
 
 input{

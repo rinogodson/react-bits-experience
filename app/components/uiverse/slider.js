@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import styled from "styled-components";
 
@@ -41,6 +42,7 @@ const StyledWrapper = styled.div`
     outline: none;
     opacity: 0.7;
     -webkit-transition: 0.2s;
+    cursor: ew-resize;
     transition: all 0.2s ease;
   }
   .PB-range-slider:active {
@@ -55,7 +57,7 @@ const StyledWrapper = styled.div`
     border-radius: 5px;
     background-color: #fff;
     border: 3px solid #1B1B1B;
-    cursor: pointer;
+    cursor: ew-resize;
     transition: all 0.3s ease;
   }
 
@@ -74,7 +76,7 @@ const StyledWrapper = styled.div`
     border-radius: 5px;
     background-color: #fff;
     border: 2px solid #000;
-    cursor: pointer;
+    cursor: ew-resize;
   }
 
   .PB-range-slider-div {

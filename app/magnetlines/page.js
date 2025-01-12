@@ -57,6 +57,9 @@ function Page() {
               });
             }
             setGridLev(false);
+            setTimeout(() => {
+              setGridLev(true);
+            }, 10);
           }}
         />
         <div className="division" />
@@ -127,6 +130,8 @@ function Page() {
             }}
           />
         </div>
+        <div className="division"></div>
+        <p>Reload if FPS issues.</p>
       </div>
     </div>
   );

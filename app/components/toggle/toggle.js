@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import "./toggle.css"
 import { Mouse } from 'lucide-react'

@@ -242,6 +242,8 @@ function Page() {
             }}
           />
         </div>
+        <div className="division"></div>
+        <p>Reload if FPS issues.</p>
       </div>
     </div>
   );

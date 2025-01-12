@@ -55,6 +55,7 @@ const StyledWrapper = styled.div`
     border: 1px solid #4b4b4b;
     font-size: 1.2em;
     width: 100%;
+    cursor: pointer;
     box-shadow: 0px 1px 2px 0px #1f1e241f;
   }
 `;

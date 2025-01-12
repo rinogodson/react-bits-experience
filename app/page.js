@@ -68,16 +68,6 @@ const experiences = [
   },
   { name: "Ballpit", link: "/ballpit", image: "https://cloud-ap6m65cq7-hack-club-bot.vercel.app/0image.png", },
   {
-    name: "Splash Cursor",
-    link: "/splashcursor",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
-  },
-  {
-    name: "Blob Cursor",
-    link: "/blobcursor",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
-  },
-  {
     name: "Waves",
     link: "/waves",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
@@ -92,12 +82,17 @@ const experiences = [
     link: "/noise",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
-  { name: "Stack", link: "/stack", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
   {
     name: "Shape Blur",
     link: "/shapeblur",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
+  {
+    name: "Blob Cursor",
+    link: "/blobcursor",
+    image: "https://cloud-rcm0ffhin-hack-club-bot.vercel.app/0screen_recording_jan_11_2025.gif",
+  },
+  { name: "Stack", link: "/stack", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
   {
     name: "Variable Proximity",
     link: "variableproximity",
@@ -106,6 +101,11 @@ const experiences = [
   {
     name: "True Focus",
     link: "/truefocus",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Splash Cursor",
+    link: "/splashcursor",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
   },
 ];
