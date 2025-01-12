@@ -86,7 +86,7 @@ const experiences = [
   {
     name: "Hyperspeed",
     link: "/hyperspeed",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+    image: "https://cloud-59ivdls58-hack-club-bot.vercel.app/075cb405aa96a0f0040a2f9579afa151ba10371df104120c0e21296ad21372da8.png",
   },
   {
     name: "Waves",
@@ -107,7 +107,7 @@ const experiences = [
     name: "Blob Cursor",
     link: "/blobcursor",
     image:
-      "https://cloud-rcm0ffhin-hack-club-bot.vercel.app/0screen_recording_jan_11_2025.gif",
+      "https://cloud-fh24cv1xr-hack-club-bot.vercel.app/0tiff_to_png.png",
   },
   {
     name: "Stack",

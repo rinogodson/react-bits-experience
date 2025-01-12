@@ -8,14 +8,14 @@ function Page() {
     onSlowDown: () => {},
     distortion: "turbulentDistortion",
     length: 400,
-    roadWidth: 10,
-    islandWidth: 2,
-    lanesPerRoad: 4,
-    fov: 90,
-    fovSpeedUp: 150,
-    speedUp: 2,
+    roadWidth: 10, //YES
+    islandWidth: 10, // YES
+    lanesPerRoad: 3, 
+    fov: 90, // YES
+    fovSpeedUp: 150,  
+    speedUp: 2, // YES
     carLightsFade: 0.4,
-    totalSideLightSticks: 20,
+    totalSideLightSticks: 20, // YES
     lightPairsPerRoadWay: 40,
     shoulderLinesWidthPercentage: 0.05,
     brokenLinesWidthPercentage: 0.1,
@@ -30,22 +30,26 @@ function Page() {
     carShiftX: [-0.8, 0.8],
     carFloorSeparation: [0, 5],
     colors: {
-      roadColor: 0x080808,
-      islandColor: 0x0a0a0a,
-      background: 0x000000,
-      shoulderLines: 0xffffff,
-      brokenLines: 0xffffff,
-      leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-      rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-      sticks: 0x03b3c3,
+      roadColor: "#080808", // YES      
+      islandColor: "#0a0a0a", // YES
+      background: "#000000", // YES
+      shoulderLines: "#ffffff",
+      brokenLines: "#ffffff",
+      leftCars: ["#d856bf", "#6750a2"], // YES
+      rightCars: ["#03b3c3", "#0e5ea5"], // YES            
+      sticks: "#03b3c3", // YES
     },
   })
   return (
-    <div className="w-screen h-screen flex justify-between items-center">
+    <div className="w-screen h-screen flex justify-between items-center">      
       <div className="w-[100vh] aspect-square">
         <Hyperspeed
           effectOptions={effectOptions}
         />
+      </div>
+      <div className="settingsCont" style={{ position: "relative" }}>
+        <p className="settingsTitle">{`-> Settings <-`}</p>
+        <p style={{fontSize:"10px"}}>Click & Hold the Animation Window.</p>
       </div>
     </div>
   );
