@@ -16,11 +16,23 @@ function Page() {
         animateBy="letters"
       />
       <motion.p
-      initial={{opacity: 0, scaleX: 0}}
-      animate={{opacity: 0.8, scaleX: 1}}
-      whileHover={{opacity: 1, scaleX: 1.15}}
-      transition={{duration: 0.5, type:"spring", damping:"20", stiffness:"300"}}
-      className="tagline">Have you seen your app dance and users giggle?<br/><span style={{fontSize:"30px"}}>Experience the power of React Animations here!</span></motion.p>
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={{ opacity: 0.8, scaleX: 1 }}
+        whileHover={{ opacity: 1, scaleX: 1.15 }}
+        transition={{
+          duration: 0.5,
+          type: "spring",
+          damping: "20",
+          stiffness: "300",
+        }}
+        className="tagline"
+      >
+        Have you seen your app dance and users giggle?
+        <br />
+        <span style={{ fontSize: "30px" }}>
+          Experience the power of React Animations here!
+        </span>
+      </motion.p>
       <div className="cardsCont">
         {experiences.map((item, index) => {
           return (
@@ -34,7 +46,7 @@ function Page() {
                 stiffness: 250,
                 damping: 12,
               }}
-            >
+            > 
               <SpotlightCard
                 key={index}
                 className="card"
@@ -66,16 +78,20 @@ const experiences = [
     link: "/magnetlines",
     image: "https://cloud-q4n1tz09u-hack-club-bot.vercel.app/0image.png",
   },
-  { name: "Ballpit", link: "/ballpit", image: "https://cloud-ap6m65cq7-hack-club-bot.vercel.app/0image.png", },
   {
-    name: "Waves",
-    link: "/waves",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+    name: "Ballpit",
+    link: "/ballpit",
+    image: "https://cloud-ap6m65cq7-hack-club-bot.vercel.app/0image.png",
   },
   {
     name: "Hyperspeed",
     link: "/hyperspeed",
     image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
+  {
+    name: "Waves",
+    link: "/waves",
+    image: "https://cloud-1yrvxo399-hack-club-bot.vercel.app/0image.png",
   },
   {
     name: "Noise",
@@ -90,9 +106,14 @@ const experiences = [
   {
     name: "Blob Cursor",
     link: "/blobcursor",
-    image: "https://cloud-rcm0ffhin-hack-club-bot.vercel.app/0screen_recording_jan_11_2025.gif",
+    image:
+      "https://cloud-rcm0ffhin-hack-club-bot.vercel.app/0screen_recording_jan_11_2025.gif",
   },
-  { name: "Stack", link: "/stack", image: "https://placehold.co/410x410/2B2B2B/FEFEFE", },
+  {
+    name: "Stack",
+    link: "/stack",
+    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+  },
   {
     name: "Variable Proximity",
     link: "variableproximity",
@@ -106,6 +127,6 @@ const experiences = [
   {
     name: "Splash Cursor",
     link: "/splashcursor",
-    image: "https://placehold.co/410x410/2B2B2B/FEFEFE",
+    image: "https://cloud-2jwq0ujd3-hack-club-bot.vercel.app/0image.png",
   },
 ];

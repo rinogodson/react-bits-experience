@@ -8,7 +8,7 @@ function Page() {
 
   const [waveProps, setWaveProps] = React.useState({
     lineColor: "#2b2b2b",
-    bgColor: "#000",
+    bgColor: "#000000",
     waveSpeedX: 0.02,
     waveSpeedY: 0.01,
     waveAmp: 40,

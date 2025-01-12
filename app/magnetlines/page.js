@@ -3,13 +3,20 @@ import React from "react";
 import MagnetLines from "@/src/blocks/Animations/MagnetLines/MagnetLines";
 import Slider from "../components/uiverse/slider";
 import ColorPicker from "../components/colorPicker/colorpicker";
+import Select from "../components/uiverse/select";
 function Page() {
   const [gridLev, setGridLev] = React.useState(false);
+
+  const [template, setTemplate] = React.useState("Custom")
+
   React.useEffect(() => {
-    if (gridLev == false) {
+
+    setGridLev(false);
+    setTimeout(() => {
       setGridLev(true);
-    }
-  }, [gridLev]);
+    }, 10);
+  }, [template]);
+
   const [magneticProps, setMagneticProps] = React.useState({
     gridSize: 15,
     containerHeight: "100vh",
@@ -42,6 +49,9 @@ function Page() {
 
       <div className="settingsCont" style={{ position: "relative" }}>
         <p className="settingsTitle">{`-> Settings <-`}</p>
+        <p>Templates</p>
+        <Select templates={templates} template={template} setTemplate={setTemplate} setProps={setMagneticProps} />
+        <div className="division"></div>
         <Slider
           minimum={1}
           maximum={20}
@@ -138,3 +148,63 @@ function Page() {
 }
 
 export default Page;
+
+
+const templates = [
+  {
+    name: "Custom",
+    set: {
+      gridSize: 15,
+      containerHeight: "100vh",
+      containerWidth: "100vw",
+      lineColor: "#663399",
+      lineWidth: 4,
+      lineHeight: 30,
+      baseAngle: -10,
+      bgColor: "#0e0e0e",
+      borderRadius: 45,
+    },
+  },
+  {
+    name: "Candy",
+    set: {
+      gridSize: 15,
+      containerHeight: "100vh",
+      containerWidth: "100vw",
+      lineColor: "#993391",
+      lineWidth: 20,
+      lineHeight: 36,
+      baseAngle: -10,
+      bgColor: "#100910",
+      borderRadius: 45,
+    },
+  },
+  {
+    name: "Sun",
+    set: {
+      gridSize: 15,
+      containerHeight: "100vh",
+      containerWidth: "100vw",
+      lineColor: "#fff047",
+      lineWidth: 1,
+      lineHeight: 80,
+      baseAngle: -10,
+      bgColor: "#001a4d",
+      borderRadius: 45,
+    },
+  },
+  {
+    name: "Aim",
+    set: {
+      gridSize: 20,
+      containerHeight: "100vh",
+      containerWidth: "100vw",
+      lineColor: "#ff0000",
+      lineWidth: 100,
+      lineHeight: 1,
+      baseAngle: -10,
+      bgColor: "#000000",
+      borderRadius: 45,
+    },
+  },
+];

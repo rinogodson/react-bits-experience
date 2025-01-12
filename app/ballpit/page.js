@@ -5,11 +5,13 @@ import { Earth, Lightbulb, LightbulbOff } from "lucide-react";
 import Slider from "../components/uiverse/slider";
 import ColorPicker from "../components/colorPicker/colorpicker";
 import Toggle from "../components/toggle/toggle";
-import { color } from "framer-motion";
+import Select from "../components/uiverse/select";
 
 function Page() {
   const [showBalls, setShowBalls] = React.useState(true);
   console.log("SHOWBALLS", showBalls);
+
+  const [template, setTemplate] = React.useState("Custom")
   
   const [ballProps, setBallProps] = React.useState({
     count: 150,
@@ -55,6 +57,8 @@ function Page() {
       </div>
       <div className="settingsCont" style={{ position: "relative" }}>
         <p className="settingsTitle">{`-> Settings <-`}</p>
+        <p>Templates</p>
+        <Select templates={templates} template={template} setTemplate={setTemplate} setProps={setBallProps} />
         <div
           className="w-full grid gap-[10px]"
           style={{ gridTemplateColumns: "1fr 110px" }}
@@ -250,3 +254,71 @@ function Page() {
 }
 
 export default Page;
+
+
+const templates = [
+  {
+    name: "Custom",
+    set: {
+      count: 150,
+      gravity: 1,
+      friction: 0.85,
+      wallBounce: 0.95,
+      followCursor: false,
+      colors: ["#FFA555", "#FF65E4", "#7197FD"],
+      lightIntensity: 250,
+      minSize: 0.5,
+      maxSize: 1.2,
+      size0: 2,
+      bgColor: "#000",
+    },
+  },
+  {
+    name: "Lava",
+    set: {
+      count: 200,
+      gravity: 0.46,
+      friction: 0.85,
+      wallBounce: 0.95,
+      followCursor: false,
+      colors: ["#ff7700", "#ff8800", "#fd0808"],
+      lightIntensity: 25,
+      minSize: 0.2,
+      maxSize: 0.90,
+      size0: 1,
+      bgColor: "#000",
+    },
+  },
+  {
+    name: "Gothic",
+    set: {
+      count: 200,
+      gravity: 1,
+      friction: 0.85,
+      wallBounce: 0.95,
+      followCursor: false,
+      colors: ["#262626", "#707070", "#000000"],
+      lightIntensity: 25,
+      minSize: 0.2,
+      maxSize: 1.24,
+      size0: 1,
+      bgColor: "#000",
+    },
+  },
+  {
+    name: "Marbles",
+    set: {
+      count: 200,
+      gravity: 0,
+      friction: 0.85,
+      wallBounce: 0.95,
+      followCursor: true,
+      colors: ["#009dff", "#0040ff", "#0886fd"],
+      lightIntensity: 500,
+      minSize: 0.2,
+      maxSize: 0.33,
+      size0: 2,
+      bgColor: "#000",
+    },
+  },
+];
