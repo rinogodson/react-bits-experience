@@ -36,7 +36,7 @@ function Page() {
         className="tagline w-full py-[50px]"
       >
         <VariableProximity
-          label={"Have you seen your app dance and users giggle? Hover!"}
+         label={"Have you seen your app dance and users giggle? Hover!"}
           className={"small-tagline"}
           fromFontVariationSettings="'wght' 600, 'opsz' 9"
           toFontVariationSettings="'wght' 1000, 'opsz' 40"

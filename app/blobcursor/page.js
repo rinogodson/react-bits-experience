@@ -4,7 +4,7 @@ import BlobCursor from "@/src/blocks/Animations/BlobCursor/BlobCursor";
 import ColorPicker from "../components/colorPicker/colorpicker";
 import Select from "../components/uiverse/select";
 import { Settings, Settings2 } from "lucide-react";
-import "../globals.css"
+import "../globals.css";
 function Page() {
   const [showBlob, setShowBlob] = React.useState(true);
   const [template, setTemplate] = React.useState("Custom");
@@ -24,10 +24,10 @@ function Page() {
     setTemplate(e.target.value);
   };
 
-  const [show, setShow] = React.useState(false)
-    React.useEffect(()=>{
-      setShow(true);
-    }, [])
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    setShow(true);
+  }, []);
   return (
     <div className="w-screen h-screen flex justify-between items-center">
       {show && (
