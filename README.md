@@ -98,3 +98,4 @@ This project is licensed under the MIT License.
 Happy animating with React Bits Experience!
 
 Used Figma for Design, Used AI Companionship.
+Code Credits to [ReactBits.dev](reactbits.dev/)
